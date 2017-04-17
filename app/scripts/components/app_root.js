@@ -15,23 +15,23 @@ const NavBar = () => {
       <br />
       <NavLink to="/question1">Question 1</NavLink>
       <br />
-      <NavLink to="/question">Question 2</NavLink>
+      <NavLink to="/question2">Question 2</NavLink>
       <br />
-      <NavLink to="/question">Question 3</NavLink>
+      <NavLink to="/question3">Question 3</NavLink>
       <br />
-      <NavLink to="/question">Question 4</NavLink>
+      <NavLink to="/question4">Question 4</NavLink>
       <br />
-      <NavLink to="/question">Question 5</NavLink>
+      <NavLink to="/question5">Question 5</NavLink>
       <br />
-      <NavLink to="/question">Question 6</NavLink>
+      <NavLink to="/question6">Question 6</NavLink>
       <br />
-      <NavLink to="/question">Question 7</NavLink>
+      <NavLink to="/question7">Question 7</NavLink>
       <br />
-      <NavLink to="/question">Question 8</NavLink>
+      <NavLink to="/question8">Question 8</NavLink>
       <br />
-      <NavLink to="/question">Question 9</NavLink>
+      <NavLink to="/question9">Question 9</NavLink>
       <br />
-      <NavLink to="/question">Question 10</NavLink>
+      <NavLink to="/question10">Question 10</NavLink>
     </nav>
   )
 }

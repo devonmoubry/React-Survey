@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class Question1 extends React.Component {
   render (data) {
@@ -7,7 +8,7 @@ class Question1 extends React.Component {
           <h1>Question 1</h1>
           <p>What breed of dog was "Marley" in the film "Marley & Me"?</p>
           <input type="text" />
-          <button>Next Question</button>
+          <Link to="/question2">Next Question</Link>
       </main>
     );
   }
