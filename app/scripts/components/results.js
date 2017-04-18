@@ -8,6 +8,7 @@ class Results extends React.Component {
   constructor(props) {
     super(props);
     this.getQuestionRows = this.getQuestionRows.bind(this);
+    this.submitAnswers = this.submitAnswers.bind(this);
   }
 
   getQuestionRows(answers) {
@@ -22,6 +23,10 @@ class Results extends React.Component {
     });
 
     return rows;
+  }
+
+  submitAnswers() {
+    this.props.dispatch({ type: "SUBMIT_ANSWERS" });
   }
 
   render () {
@@ -40,7 +45,7 @@ class Results extends React.Component {
               { this.getQuestionRows(this.props.answers) }
             </tbody>
           </table>
-          <button>Submit</button>
+          <button onClick={this.submitAnswers}>Submit</button>
       </main>
     );
   }
