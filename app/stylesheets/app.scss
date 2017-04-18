@@ -9,9 +9,11 @@ $big-font: 15rem;
 
 html {
     body {
-        text-align: center;
+      max-width: 900px;
+        display: flex;
+        justify-content: center;
         font-size: 36px;
-        color: black;
+        color: #fafafa;
         font-family: 'Pompiere', cursive;
         margin: auto;
         padding: auto;
@@ -24,6 +26,7 @@ html {
         background: linear-gradient(to right, rgba(34,113,209,1) 0%, rgba(34,113,209,1) 21%, rgba(37,164,220,1) 80%, rgba(38,181,224,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2271d1', endColorstr='#26b5e0', GradientType=1 );
     }
+
     h1 {
         font-family: 'Amatic SC', cursive;
         font-size: 108px;
@@ -31,17 +34,39 @@ html {
     nav {
       display: flex;
       font-size: 24px;
-      justify-content: space-around;
+      justify-content: space-between;
     }
-    a {
+    a, button {
+      font-family: 'Amatic SC', cursive;
       text-decoration: none;
       color: #fafafa;
       padding: 2px;
       border: 1px solid #fafafa;
       border-radius: 6px;
+      background-color: rgba(34,113,209,1);
     }
     input {
       margin: 4px;
+    }
+
+    .left {
+      justify-content: flex-start;
+    }
+
+    .right {
+      justify-content: flex-end;
+    }
+
+    table {
+      color: #fafafa;
+      tbody {
+        font-size: 18px;
+        text-align: left;
+      }
+      td {
+        border: 1px solid #fafafa;
+        padding: 6px;
+      }
     }
 }
 
