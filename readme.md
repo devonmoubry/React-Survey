@@ -21,6 +21,17 @@ Your app will have at least the following Routes:
 **#...**
 **/results**
 
+App Planning
+--------
+<p align="center">
+  <img src="app/images/IMG_3527.JPG" width="350"/>
+</p>
+
+
+Live version
+------------
+abstracted-bean.surge.sh
+
 --------------------------------------------------------------------------------
 Created by Devon Moubry.
 devon@moubry.com
