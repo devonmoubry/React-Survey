@@ -35,7 +35,7 @@ export default function AppReducer (state, action) {
           "Answers": JSON.stringify(state.answers)
         }),
         success: function (data, status, xhr) {
-          store.dispatch({ type: 'RESET_EVERYTHING' });
+          console.log(store.dispatch('something'));
         },
         error: function(data, status, xhr) {
           console.log('error', data);
