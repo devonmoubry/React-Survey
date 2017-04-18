@@ -1,9 +1,27 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import questions from './questions.js'
+import container from '../containers/all.js'
 
 class Results extends React.Component {
   constructor(props) {
     super(props);
+    this.getQuestionRows = this.getQuestionRows.bind(this);
+  }
+
+  getQuestionRows(answers) {
+    const rows = questions.map(function(question) {
+      return (
+        <tr key={question.id}>
+          <td>{question.id}</td>
+          <td>{question.question}</td>
+          <td>{answers[question.id-1]}</td>
+        </tr>
+      );
+    });
+
+    return rows;
   }
 
   render () {
@@ -19,56 +37,7 @@ class Results extends React.Component {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>What breed of dog was "Marley" in the film Marley & Me?</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Which movie released in 2016 features Superman and Batman fighting?</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Daniel Radcliffe became a global star in the film industry due to his performance in which film franchise?</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>What name did Tom Hanks give to his volleyball companion in the film Cast Away?</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>What is the highest grossing film of all time (without adjusting for inflation)?</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Which movie contains the quote, "Say hello to my little friend!"?</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>Who directed the movies Pulp Fiction, Reservoir Dogs and Django Unchained?</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>What was Dorothy’s surname in The Wizard Of Oz?</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td>This movie contains the quote, "Houston, we have a problem."</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>Was Scarlett Johansson part of the cast for the 2016 movie Suicide Squad?</td>
-                <td></td>
-              </tr>
+              { this.getQuestionRows(this.props.answers) }
             </tbody>
           </table>
           <button>Submit</button>
@@ -77,4 +46,4 @@ class Results extends React.Component {
   }
 }
 
-export default Results
+export default connect(container.allState)(Results)

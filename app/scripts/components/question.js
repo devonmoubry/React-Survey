@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import questions from './questions.js'
+import container from '../containers/all.js'
 
 class Question extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class Question extends React.Component {
   }
 
   handleQuestion () {
-    console.log('question handled');
+    const questionId = parseInt(this.props.match.params.id);
+    const answer = this.refs.answer.value;
+    this.props.dispatch({ type: 'SAVE_ANSWER', question_id: questionId, answer: answer });
   }
 
   render (data) {
@@ -20,7 +23,6 @@ class Question extends React.Component {
     let rightButton = <Link className="right" onClick={this.handleQuestion} to={`/question/${question.id + 1}`}>Next Question</Link>;
 
     if (questionId === 10) {
-      console.log('horr');
       rightButton = <Link className="right" onClick={this.handleQuestion} to="/results">Results</Link>
     }
 
@@ -35,11 +37,11 @@ class Question extends React.Component {
           {question.question}
           </p>
           {leftButton}
-          <input type="text" />
+          <input ref="answer" type="text" />
           {rightButton}
       </main>
     );
   }
 }
 
-export default connect()(Question)
+export default connect(container.allState)(Question)
