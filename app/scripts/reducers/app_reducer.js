@@ -35,13 +35,19 @@ export default function AppReducer (state, action) {
           "Answers": JSON.stringify(state.answers)
         }),
         success: function (data, status, xhr) {
-          console.log('victory!');
+          store.dispatch({ type: 'RESET_EVERYTHING' });
         },
         error: function(data, status, xhr) {
           console.log('error', data);
         }
       })
       return state;
+
+    case "RESET_EVERYTHING":
+      var newState = {
+        answers: [null, null, null, null, null, null, null, null, null, null]
+      };
+      return newState;
 
     default:
       return state;

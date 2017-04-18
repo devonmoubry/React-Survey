@@ -13,18 +13,23 @@ class Results extends React.Component {
 
   getQuestionRows(answers) {
     const rows = questions.map(function(question) {
+      let answered = false;
+      if (answers[question.id-1] !== null) {
+        answered = true;
+      }
+
       return (
         <tr key={question.id}>
           <td>{question.id}</td>
           <td>{question.question}</td>
-          <td>{answers[question.id-1]}</td>
+          <td className={answered ? '' : 'red'}>{answers[question.id-1]}</td>
         </tr>
       );
     });
 
     return rows;
   }
-
+//<div className={"btn-group pull-right " + (this.props.showBulkActions ? 'show' : 'hidden')}>
   submitAnswers() {
     this.props.dispatch({ type: "SUBMIT_ANSWERS" });
   }
